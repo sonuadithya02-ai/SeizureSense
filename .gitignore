@@ -1,88 +1,61 @@
-# Virtual environments
-seizeit2_env/
-tf_env/
-bin/
-include/
-lib/
-share/
-
-# Build folders
-build/
-
-# Dataset folders
-seizeit2_data/
-ds005873/
-
-# Numpy arrays
+# ===============================
+# Python & Virtual Environments
+# ===============================
+.venv*/
+__pycache__/
 *.npy
-
-# Large model files
 *.keras
+*.lock
 
-# PDFs & Word docs
+# ===============================
+# Build Artifacts
+# ===============================
+build/
+managed_components/
+sdkconfig*
+sdkconfig.old
+
+# ===============================
+# Large Academic Outputs
+# ===============================
 *.pdf
 *.docx
 *.pptx
 
-# Python cache
-__pycache__/
+# ===============================
+# Datasets
+# ===============================
+seizeit2_env/
+tf_env/
+seizeit2_data/
+ds005873/
 
-# SDK configs
-sdkconfig*
-sdkconfig.old
+# ===============================
+# IDE / Editor Files
+# ===============================
+.vscode/
+.devcontainer/
+.clangd
 
-# Mac files
+# ===============================
+# OS Files
+# ===============================
 .DS_Store
 
-# Academic docs
-template-app/*.pdf
-template-app/*.docx
-template-app/*.pptx
+# ===============================
+# Auto-generated Scripts (Optional)
+# ===============================
+generate_*_pdf.py
+generate_*_docx.py
+generate_*_ppt_*.py
+generate_*.py
 
-# Internal numpy configs
-template-app/*.npy
+# ===============================
+# Backup Models
+# ===============================
+backup_old_model/
 
-# Keras models
-template-app/*.keras
-
-# SDK configs
-template-app/sdkconfig*
-template-app/managed_components/
-
-# Build folders
-template-app/build/
-template-app/graph_env/
-
-# Lock files
-template-app/dependencies.lock
-
+# ===============================
+# Misc
+# ===============================
 project_file_list.csv
-
-# Dev & editor configs
-template-app/.vscode/
-template-app/.devcontainer/
-template-app/.clangd
-template-app/.venv312/
-
-# Old backups
-template-app/main/backup_old_model/
-
-# Auto thesis generators
-template-app/generate_*_pdf.py
-template-app/generate_*_docx.py
-template-app/generate_*_ppt_*.py
-template-app/generate_abstract_pdf.py
-template-app/generate_contents_docx.py
-template-app/generate_future_scope_pdf.py
-template-app/generate_implementation_chapter_docx.py
-template-app/generate_memory_pdf.py
-template-app/generate_methodology_*.py
-template-app/generate_references_pdf.py
-template-app/generate_results_discussions_pdf.py
-template-app/generate_system_specs_*.py
-
-template-app/generate_*.py
-template-app/main/seizure_model.tflite
-template-app/model.tflite
-template-app/main/CMakeLists.txt
-template-app/.gitignore

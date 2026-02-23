@@ -1,32 +1,114 @@
-# _Sample project_
+# SeizureSense  
+### Edge-Based Multisensor Seizure Detection Wearable (ESP32-S3 + Quantized TFLite)
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+SeizureSense is an embedded edge-AI system designed to detect seizure events in real-time using multisensor fusion and an optimized INT8 TensorFlow Lite model deployed on ESP32-S3.
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+The system performs fully on-device inference without cloud dependency and is designed for low-power wearable deployment.
+
+---
+
+## 🚀 Key Features
+
+- 🧠 Edge AI inference using quantized INT8 TensorFlow Lite model  
+- 📡 Multisensor fusion (GSR + HRV + motion data)  
+- ⚡ Real-time signal preprocessing and filtering  
+- 📉 Memory-optimized deployment for ESP32-S3  
+- 📊 Evaluated using confusion matrix and ROC metrics  
+- 🔌 Fully offline inference (no internet required)
+
+---
+
+## 🏗 System Architecture
+
+![System Flowchart](report_graphs/00_complete_system_flowchart.png)
+
+### System Pipeline
+
+1. Sensor acquisition (GSR, HRV, motion)
+2. Signal preprocessing and filtering
+3. Feature extraction
+4. Quantized ML inference (INT8 TFLite)
+5. Decision logic
+6. Alert triggering mechanism
+
+---
+
+## 🧠 Embedded ML Deployment
+
+- Model converted to TensorFlow Lite
+- Quantized to INT8 for memory efficiency
+- Deployed using ESP-IDF
+- Integrated using C/C++ inference pipeline
+- Optimized for real-time execution constraints
+
+Deployed model file:
+template-app/seizure_model_int8.tflite
 
 
+---
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+## 📊 Model Performance
 
-## Example folder contents
+### Confusion Matrix
+![Confusion Matrix](report_graphs/07_confusion_matrix.png)
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+### ROC Curve
+![ROC Curve](report_graphs/08_roc_curve.png)
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+The model demonstrates strong classification performance for seizure detection scenarios.
 
-Below is short explanation of remaining files in the project folder.
+---
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+## 📂 Repository Structure
+template-app/
+│
+├── main/ # ESP-IDF firmware source
+│ ├── main.c
+│ ├── gsr_detection.c
+│ ├── hrv_detection.c
+│ ├── seizure_filter.c
+│ ├── detection_responder.cc
+│ └── model_settings.*
+│
+├── report_graphs/ # Evaluation visuals
+│
+├── seizure_model_int8.tflite # Quantized deployment model
+│
+└── CMakeLists.txt
+
+
+---
+
+## ⚙️ Build Environment
+
+- ESP-IDF
+- C / C++
+- TensorFlow Lite (quantized model deployment)
+- CMake-based build system
+
+---
+
+## 🔒 Notes
+
+- Training dataset and preprocessing pipelines are intentionally not included.
+- Detailed training configurations and hyperparameters are excluded.
+- This repository focuses on embedded deployment and system integration.
+
+---
+
+## 🎯 Project Objective
+
+To demonstrate a complete embedded edge-AI pipeline:
+- Sensor-level acquisition
+- Real-time signal processing
+- Quantized ML inference
+- Deployment on constrained hardware
+
+This project reflects practical embedded ML engineering for wearable health monitoring applications.
+
+---
+
+## 👨‍💻 Author
+
+**Sonu Adithya**  
+Embedded Systems & Edge AI Developer

@@ -80,3 +80,9 @@ template-app/generate_methodology_*.py
 template-app/generate_references_pdf.py
 template-app/generate_results_discussions_pdf.py
 template-app/generate_system_specs_*.py
+
+template-app/generate_*.py
+template-app/main/seizure_model.tflite
+template-app/model.tflite
+template-app/main/CMakeLists.txt
+template-app/.gitignore

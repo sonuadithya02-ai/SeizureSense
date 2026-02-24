@@ -7,6 +7,17 @@ This project demonstrates embedded systems design, signal processing, TinyML dep
 
 ---
 
+## 📸 Hardware Prototype
+
+![Hardware Prototype](Assets/hardware_prototype1.jpg)
+![Hardware Prototype](Assets/hardware_prototype2.jpg)
+
+---
+
+## 🎥 Live Edge Inference Demo
+
+![Live Demo](Assets/demo.gif)
+
 ## 🚀 System Overview
 
 The wearable device monitors:

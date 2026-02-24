@@ -1,114 +1,116 @@
 # SeizureSense  
-### Edge-Based Multisensor Seizure Detection Wearable (ESP32-S3 + Quantized TFLite)
+### Edge-Based Seizure Detection Wearable using ESP32-S3 and Quantized TFLite Micro
 
-SeizureSense is an embedded edge-AI system designed to detect seizure events in real-time using multisensor fusion and an optimized INT8 TensorFlow Lite model deployed on ESP32-S3.
+SeizureSense is an embedded edge-AI system designed for real-time seizure detection using physiological and motion signals. The system runs a quantized TensorFlow Lite Micro model directly on the ESP32-S3 microcontroller for low-latency, offline inference.
 
-The system performs fully on-device inference without cloud dependency and is designed for low-power wearable deployment.
-
----
-
-## 🚀 Key Features
-
-- 🧠 Edge AI inference using quantized INT8 TensorFlow Lite model  
-- 📡 Multisensor fusion (GSR + HRV + motion data)  
-- ⚡ Real-time signal preprocessing and filtering  
-- 📉 Memory-optimized deployment for ESP32-S3  
-- 📊 Evaluated using confusion matrix and ROC metrics  
-- 🔌 Fully offline inference (no internet required)
+This project demonstrates embedded systems design, signal processing, TinyML deployment, and real-time decision logic on resource-constrained hardware.
 
 ---
 
-## 🏗 System Architecture
+## 🚀 System Overview
 
-![System Flowchart](report_graphs/00_complete_system_flowchart.png)
+The wearable device monitors:
 
-### System Pipeline
+- Galvanic Skin Response (GSR)
+- Heart Rate Variability (HRV)
+- Motion patterns (accelerometer)
 
-1. Sensor acquisition (GSR, HRV, motion)
-2. Signal preprocessing and filtering
-3. Feature extraction
-4. Quantized ML inference (INT8 TFLite)
-5. Decision logic
-6. Alert triggering mechanism
+A lightweight ML model classifies seizure events in real time without cloud dependency.
 
 ---
 
 ## 🧠 Embedded ML Deployment
 
-- Model converted to TensorFlow Lite
-- Quantized to INT8 for memory efficiency
-- Deployed using ESP-IDF
-- Integrated using C/C++ inference pipeline
-- Optimized for real-time execution constraints
+- Model: Quantized INT8 TensorFlow Lite Micro
+- Target: ESP32-S3
+- Framework: ESP-IDF
+- Language: C / C++
+- Inference: On-device (Edge AI)
 
-Deployed model file:
-template-app/seizure_model_int8.tflite
-
+The model is optimized for:
+- Low RAM footprint
+- Low flash usage
+- Real-time inference capability
 
 ---
 
 ## 📊 Model Performance
 
 ### Confusion Matrix
-![Confusion Matrix](report_graphs/07_confusion_matrix.png)
+![Confusion Matrix](firmware/report_graphs/07_confusion_matrix.png)
 
 ### ROC Curve
-![ROC Curve](report_graphs/08_roc_curve.png)
+![ROC Curve](firmware/report_graphs/08_roc_curve.png)
 
-The model demonstrates strong classification performance for seizure detection scenarios.
+The model demonstrates strong classification capability for seizure detection scenarios.
 
 ---
 
 ## 📂 Repository Structure
-template-app/
-│
-├── main/ # ESP-IDF firmware source
-│ ├── main.c
-│ ├── gsr_detection.c
-│ ├── hrv_detection.c
-│ ├── seizure_filter.c
-│ ├── detection_responder.cc
-│ └── model_settings.*
-│
-├── report_graphs/ # Evaluation visuals
-│
-├── seizure_model_int8.tflite # Quantized deployment model
-│
-└── CMakeLists.txt
+
+.
+├── README.md
+├── firmware/
+│ ├── CMakeLists.txt
+│ ├── main/
+│ │ ├── main.c
+│ │ ├── gsr_detection.c
+│ │ ├── hrv_detection.c
+│ │ ├── seizure_filter.c
+│ │ ├── detection_responder.cc
+│ │ ├── model_settings.*
+│ │ └── seizure_model_new.cc
+│ ├── seizure_model_int8.tflite
+│ └── report_graphs/
 
 
 ---
 
-## ⚙️ Build Environment
+## 🛠 Build Environment
 
 - ESP-IDF
-- C / C++
-- TensorFlow Lite (quantized model deployment)
-- CMake-based build system
+- ESP32-S3 Toolchain
+- CMake
+- Python (for model conversion & evaluation only)
+
+To build firmware:
+idf.py build
+idf.py flash
+idf.py monitor
+
 
 ---
 
-## 🔒 Notes
+## ⚙️ Key Features
 
-- Training dataset and preprocessing pipelines are intentionally not included.
-- Detailed training configurations and hyperparameters are excluded.
-- This repository focuses on embedded deployment and system integration.
+- Real-time physiological signal processing
+- Adaptive thresholding logic
+- Quantized TinyML inference
+- Fully offline operation
+- Resource-optimized firmware design
 
 ---
 
-## 🎯 Project Objective
+## 🎯 Project Highlights
 
-To demonstrate a complete embedded edge-AI pipeline:
-- Sensor-level acquisition
-- Real-time signal processing
-- Quantized ML inference
-- Deployment on constrained hardware
+- Edge AI deployment on microcontroller
+- Embedded signal preprocessing pipeline
+- Optimized memory allocation for TFLM
+- Medical-safety oriented system logic
+- Real-time event detection framework
 
-This project reflects practical embedded ML engineering for wearable health monitoring applications.
+---
+
+## 📌 Future Improvements
+
+- OTA firmware update support
+- Model retraining with larger clinical datasets
+- Low-power optimization for battery deployment
+- GSM-based emergency alert integration
 
 ---
 
 ## 👨‍💻 Author
 
-**Sonu Adithya**  
-Embedded Systems & Edge AI Developer
+Sonu Adithya  
+Embedded Systems & Edge AI Engineer  

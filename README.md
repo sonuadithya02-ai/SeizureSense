@@ -1,127 +1,129 @@
-# SeizureSense  
-### Edge-Based Seizure Detection Wearable using ESP32-S3 and Quantized TFLite Micro
+SeizureSense
+Edge-Based Seizure Detection Wearable using ESP32-S3 and Quantized TFLite Micro
 
-SeizureSense is an embedded edge-AI system designed for real-time seizure detection using physiological and motion signals. The system runs a quantized TensorFlow Lite Micro model directly on the ESP32-S3 microcontroller for low-latency, offline inference.
+SeizureSense is a real-time embedded edge-AI system designed for seizure detection using physiological and motion signals.
+A quantized TensorFlow Lite Micro model runs directly on the ESP32-S3 microcontroller, enabling low-latency, fully offline inference on resource-constrained hardware.
 
-This project demonstrates embedded systems design, signal processing, TinyML deployment, and real-time decision logic on resource-constrained hardware.
+This project demonstrates embedded firmware architecture, signal preprocessing, TinyML deployment, and real-time event decision logic.
 
----
-
-## 📸 Hardware Prototype
+📸 Hardware Prototype
 
 ![Hardware Prototype](Assets/hardware_prototype1.jpg)
 ![Hardware Prototype](Assets/hardware_prototype2.jpg)
 
----
 
-## 🎥 Live Edge Inference Demo
+🎥 Live Edge Inference Demo
 
 ![Live Demo](Assets/demo.gif)
 
-## 🚀 System Overview
+🚀 System Overview
 
-The wearable device monitors:
+The wearable device continuously monitors:
 
-- Galvanic Skin Response (GSR)
-- Heart Rate Variability (HRV)
-- Motion patterns (accelerometer)
+Galvanic Skin Response (GSR)
 
-A lightweight ML model classifies seizure events in real time without cloud dependency.
+Heart Rate Variability (HRV)
 
----
+Motion patterns (accelerometer)
 
-## 🧠 Embedded ML Deployment
+A lightweight quantized ML model classifies seizure-related activity directly on-device without requiring cloud connectivity.
 
-- Model: Quantized INT8 TensorFlow Lite Micro
-- Target: ESP32-S3
-- Framework: ESP-IDF
-- Language: C / C++
-- Inference: On-device (Edge AI)
+🧠 Embedded ML Deployment
 
-The model is optimized for:
-- Low RAM footprint
-- Low flash usage
-- Real-time inference capability
+Model: Quantized INT8 TensorFlow Lite Micro
 
----
+Target MCU: ESP32-S3
 
-## 📊 Model Performance
+Framework: ESP-IDF
 
-### Confusion Matrix
+Languages: C / C++
+
+Inference Mode: Fully on-device (Edge AI)
+
+Optimization focus:
+
+Reduced RAM usage
+
+Flash-efficient model storage
+
+Deterministic real-time inference
+
+Memory-aware tensor allocation
+
+📊 Model Performance
+Confusion Matrix
+
 ![Confusion Matrix](firmware/report_graphs/07_confusion_matrix.png)
 
-### ROC Curve
+ROC Curve
+
 ![ROC Curve](firmware/report_graphs/08_roc_curve.png)
 
-The model demonstrates strong classification capability for seizure detection scenarios.
+The model demonstrates strong classification capability for seizure detection scenarios under evaluated datasets.
 
----
-
-## 📂 Repository Structure
-
+📂 Repository Structure
 .
 ├── README.md
 ├── firmware/
-│ ├── CMakeLists.txt
-│ ├── main/
-│ │ ├── main.c
-│ │ ├── gsr_detection.c
-│ │ ├── hrv_detection.c
-│ │ ├── seizure_filter.c
-│ │ ├── detection_responder.cc
-│ │ ├── model_settings.*
-│ │ └── seizure_model_new.cc
-│ ├── seizure_model_int8.tflite
-│ └── report_graphs/
+│   ├── main/                  # Embedded application source
+│   ├── seizure_model_int8.tflite
+│   ├── report_graphs/         # Evaluation visuals
+│   └── CMakeLists.txt
 
+🛠 Build Environment
 
----
+ESP-IDF
 
-## 🛠 Build Environment
+ESP32-S3 Toolchain
 
-- ESP-IDF
-- ESP32-S3 Toolchain
-- CMake
-- Python (for model conversion & evaluation only)
+CMake
 
-To build firmware:
+Python (model conversion & evaluation only)
+
+To build and flash firmware:
+
 idf.py build
 idf.py flash
 idf.py monitor
+⚙️ Key Features
 
+Real-time physiological signal processing
 
----
+Adaptive thresholding logic
 
-## ⚙️ Key Features
+Quantized TinyML inference
 
-- Real-time physiological signal processing
-- Adaptive thresholding logic
-- Quantized TinyML inference
-- Fully offline operation
-- Resource-optimized firmware design
+Fully offline operation
 
----
+Resource-optimized firmware architecture
 
-## 🎯 Project Highlights
+Deterministic embedded execution pipeline
 
-- Edge AI deployment on microcontroller
-- Embedded signal preprocessing pipeline
-- Optimized memory allocation for TFLM
-- Medical-safety oriented system logic
-- Real-time event detection framework
+🎯 Technical Highlights
 
----
+Edge AI deployment on microcontroller hardware
 
-## 📌 Future Improvements
+Embedded signal preprocessing pipeline
 
-- OTA firmware update support
-- Model retraining with larger clinical datasets
-- Low-power optimization for battery deployment
-- GSM-based emergency alert integration
+TensorFlow Lite Micro integration with ESP-NN acceleration
 
----
+Optimized memory allocation strategy
 
-## 👨‍💻 Author
+Event-driven detection and response logic
 
-Sonu Adithya  
-Embedded Systems & Edge AI Engineer  
+📌 Future Improvements
+
+OTA firmware update support
+
+Larger dataset retraining & validation
+
+Further low-power optimization
+
+GSM-based emergency alert integration
+
+Battery-aware power management system
+
+👨‍💻 Author
+
+Molanguru Sonu Adithya
+Embedded Systems & Edge AI Engineer

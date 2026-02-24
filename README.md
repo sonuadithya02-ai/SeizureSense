@@ -59,21 +59,22 @@ The model demonstrates strong classification capability for seizure detection sc
 
 ## 📂 Repository Structure
 
+```text
 .
 ├── README.md
 ├── firmware/
-│ ├── CMakeLists.txt
-│ ├── main/
-│ │ ├── main.c
-│ │ ├── gsr_detection.c
-│ │ ├── hrv_detection.c
-│ │ ├── seizure_filter.c
-│ │ ├── detection_responder.cc
-│ │ ├── model_settings.*
-│ │ └── seizure_model_new.cc
-│ ├── seizure_model_int8.tflite
-│ └── report_graphs/
-
+│   ├── CMakeLists.txt
+│   ├── main/
+│   │   ├── main.c
+│   │   ├── gsr_detection.c
+│   │   ├── hrv_detection.c
+│   │   ├── seizure_filter.c
+│   │   ├── detection_responder.cc
+│   │   ├── model_settings.h
+│   │   └── seizure_model_new.cc
+│   ├── seizure_model_int8.tflite
+│   └── report_graphs/
+```
 
 ---
 
